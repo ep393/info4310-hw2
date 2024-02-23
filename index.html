@@ -1,0 +1,424 @@
+<html>
+
+<head>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    #container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #graph {
+      background: #fff;
+    }
+
+    #characterDetails {
+      border: none;
+      padding: 10px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+    }
+
+    #lineChartContainer {
+      text-align: center;
+      display: none;
+      width: 500px;
+      height: 300px;
+      background: #ADD8E6;
+      margin: auto;
+    }
+
+    .infoBoxesContainer {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .detailBox {
+      flex: 1;
+      border: 1px solid black;
+      background-color: #ADD8E6;
+      padding: 10px;
+      min-width: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    ol {
+      list-style-position: inside;
+      text-align: center;
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    .gridlines .domain {
+      display: none;
+    }
+
+    .gridlines line {
+      stroke: #aaa;
+    }
+  </style>
+</head>
+
+<div id="titleImageContainer" style="text-align: center;">
+  <img src="friends-title.webp" alt="Friends Title" style="max-width: 25%;">
+</div>
+
+<div id="introInstructions" style="text-align: center; margin-top: 20px;">
+  <p>Welcome to our interactive Friends network visualization! This graph illustrates the connections and relationships
+    between some of the characters of the show.</p>
+  <p><strong>How to interact:</strong> Click on a character node to view some fun data visualizations about them. You
+    can also drag nodes to explore the network structure.</p>
+</div>
+
+<div id="networkDiagramContainer" style="text-align: center;">
+  <svg id="graph" height="700" width="800" style="background: #fff; margin: auto; border: 2px solid #000;"></svg>
+</div>
+
+<div id="characterDetails" style="text-align: center; display: none;">
+  <h2 id="characterName"></h2>
+  <img id="characterImage" src="" alt="" style="max-width:100%; max-height:150px;">
+  <div id="characterInteractions"></div>
+</div>
+
+<div id="lineChartContainer" class="detailBox" style="text-align: center; display: none;">
+  <svg id="lineChart" height="300" width="500" style="background:white; margin: auto;"></svg>
+</div>
+
+<script>
+  const layer = d3.select("#graph").append("g");
+  const width = d3.select("#graph").attr("width");
+  const height = d3.select("#graph").attr("height");
+
+  const mainCharacters = ['Monica', 'Joey', 'Chandler', 'Phoebe', 'Ross', 'Rachel'];
+
+  const requestData = async () => {
+
+    const friends = await d3.json("friends-cooccur.json");
+    const wordCount = await d3.csv("word-count-per-season.csv");
+    const mostCommonWordsData = await d3.json("most_common_words.json");
+    const distinguishingWordsData = await d3.json("distinguishing_words.json");
+
+    var nodes = friends.nodes;
+    var links = friends.edges;
+
+    const weightExtent = d3.extent(links, d => d.weight);
+
+    const weightScale = d3.scaleLog()
+      .domain(weightExtent)
+      .range([0.1, 5])
+      .clamp(true);
+
+    const opacityScale = d3.scaleLog()
+      .domain(d3.extent(links, d => d.weight))
+      .range([0.1, 1])
+      .clamp(true);
+
+    const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+    var sim = d3.forceSimulation()
+      .nodes(nodes)
+      .force("links", d3.forceLink()
+        .links(links)
+        .id(node => node['Name'])
+        .distance(100)
+        .strength(0.1))
+      .force("repulse", d3.forceManyBody().strength(-1200))
+      .force("center", d3.forceCenter(width / 2.0, height / 2.0))
+      .force("collide", d3.forceCollide().radius(15))
+      .on("tick", render);
+
+    function displayTopInteractions(charName) {
+      const relatedLinks = links.filter(link => link.source.Name === charName || link.target.Name === charName);
+      const topLinks = relatedLinks.sort((a, b) => b.weight - a.weight).slice(0, 10);
+      let interactionsContent = `<p><strong>Characters That Appear Most Often in the Same Episode as ${charName}</strong></p><ol>`;
+      topLinks.forEach(link => {
+        const nodeName = link.source.Name === charName ? link.target.Name : link.source.Name;
+        interactionsContent += `<li style="margin-bottom: 10px;">${nodeName} : ${link.weight} episodes</li>`;
+      });
+      interactionsContent += "</ol>";
+      document.getElementById("charactersAppearMost").innerHTML = interactionsContent;
+    }
+
+    function displayMostCommonWords(characterName) {
+      const container = document.getElementById("mostCommonWords");
+      const characterData = mostCommonWordsData.find(entry => entry.character === characterName);
+      let tableHtml = `<p><strong>Most Common Words Of ${characterName}</strong></p><table><tr><th>Word</th><th>Frequency</th></tr>`;
+
+      characterData.words.forEach(wordEntry => {
+        tableHtml += `<tr><td>${wordEntry.word}</td><td>${parseInt(wordEntry.count)}</td></tr>`;
+      });
+
+      tableHtml += "</table>";
+      container.innerHTML = tableHtml;
+    }
+
+    function displayDistinguishingWords(characterName) {
+      const container = document.getElementById("mostDistinguishingWords");
+      const characterData = distinguishingWordsData.find(entry => entry.character === characterName);
+      let tableHtml = `<p><strong>Most Distinguishing Words Of ${characterName}</p></strong><table><tr><th>Word</th><th>TF-IDF Score</th></tr>`;
+
+      characterData.words.forEach(wordEntry => {
+        tableHtml += `<tr><td>${wordEntry.word}</td><td>${parseFloat(wordEntry.count).toFixed(2)}</td></tr>`;
+      });
+
+      tableHtml += "</table>";
+      container.innerHTML = tableHtml;
+    }
+
+    function displayCharacterDetails(charName) {
+      // Show the character details container
+      const characterDetailsDiv = document.getElementById("characterDetails");
+      characterDetailsDiv.style.display = "flex"; // Make sure to set this to flex to activate flexbox layout
+      characterDetailsDiv.innerHTML = ''; // Clear existing content
+
+      // Update the character's name and image
+      characterDetailsDiv.innerHTML = `
+    <h2 id="characterName">${charName}</h2>
+    <img id="characterImage" src="images/${charName.toLowerCase().replace(/\s+/g, '')}.png" alt="${charName}" style="max-width:100%; max-height:300px;">
+  `;
+
+      // Create a container for the three information boxes
+      const boxesContainer = document.createElement('div');
+      boxesContainer.className = 'infoBoxesContainer';
+
+      // Add the three boxes to the container
+      boxesContainer.innerHTML = `
+    <div id="charactersAppearMost" class="detailBox"></div>
+    <div id="mostCommonWords" class="detailBox">Most Common Words Of ${charName}</div>
+    <div id="mostDistinguishingWords" class="detailBox">Most Distinguishing Words Of ${charName}</div>
+  `;
+
+      // Append the boxes container to the characterDetailsDiv
+      characterDetailsDiv.appendChild(boxesContainer);
+
+      document.getElementById("lineChartContainer").style.display = "block";
+
+      // Now call displayTopInteractions to fill in the first box. Ensure this function updates the content of #charactersAppearMost.
+      displayTopInteractions(charName);
+      displayMostCommonWords(charName);
+      displayDistinguishingWords(charName);
+      showLineChart(charName);
+    }
+
+    function showLineChart(characterName) {
+      const speakerData = wordCount.filter(d => d.Speaker === characterName).map(d => ({
+        Season: +d.Season,
+        WordCount: +d.WordCount
+      }));
+
+      const svg = d3.select("#lineChart");
+      svg.selectAll("*").remove();
+      const margin = { top: 10, right: 10, bottom: 50, left: 70 };
+      const chartWidth = +svg.attr("width") - margin.left - margin.right;
+      const chartHeight = +svg.attr("height") - margin.top - margin.bottom;
+
+      let annotations = svg.append("g").attr("id", "annotations");
+      let chartArea = svg.append("g").attr("id", "points")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      // y-axis
+      const yScale = d3.scaleLinear()
+        .domain([0, d3.max(speakerData, d => d.WordCount)])
+        .rangeRound([chartHeight, 0]);
+
+      let leftAxis = d3.axisLeft(yScale)
+
+      let leftGridlines = d3.axisLeft(yScale)
+        .tickSize(-chartWidth - 10)
+        .tickFormat("")
+
+      annotations.append("g")
+        .attr("class", "y axis")
+        .attr("transform", `translate(${margin.left - 10},${margin.top})`)
+        .call(leftAxis)
+
+      annotations.append("g")
+        .attr("class", "y gridlines")
+        .attr("transform", `translate(${margin.left - 10},${margin.top})`)
+        .call(leftGridlines);
+
+      annotations.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left + 70)
+        .attr("x", 0 - (chartHeight / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Number of Words")
+        .style("font-size", "14px");
+
+      // x-axis
+      const xScale = d3.scaleLinear()
+        .domain(d3.extent(speakerData, d => d.Season))
+        .rangeRound([0, chartWidth]);
+
+      let bottomAxis = d3.axisBottom(xScale)
+
+      let bottomGridlines = d3.axisBottom(xScale)
+        .tickSize(-chartHeight - 10)
+        .tickFormat("")
+
+      annotations.append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(${margin.left},${chartHeight + margin.top + 10})`)
+        .call(bottomAxis);
+
+      annotations.append("g")
+        .attr("class", "x gridlines")
+        .attr("transform", `translate(${margin.left},${chartHeight + margin.top + 10})`)
+        .call(bottomGridlines);
+
+      annotations.append("text")
+        .attr("transform", `translate(${margin.left + chartWidth / 2},${chartHeight + margin.top + 40})`)
+        .style("text-anchor", "middle")
+        .text("Season")
+        .style("font-size", "14px");
+
+      var lineGen = d3.line()
+        .x(d => xScale(d.Season))
+        .y(d => yScale(d.WordCount))
+        .curve(d3.curveMonotoneX);
+
+      chartArea.append("path")
+        .datum(speakerData)
+        .attr("class", "line")
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-width", 3)
+        .attr("d", lineGen);
+
+      chartArea.selectAll("circle").data(speakerData)
+        .join("circle")
+        .attr("r", 3)
+        .attr("fill", "navy")
+        .attr("cx", d => xScale(d.Season))
+        .attr("cy", d => yScale(d.WordCount));
+    }
+
+    function render() {
+
+      // Edges
+      let lines = layer.selectAll("line.link").data(links)
+        .join(
+          enter => enter.append("line")
+            .attr("class", "link")
+            .attr("stroke", "#333")
+            .attr("stroke-width", d => weightScale(d.weight))
+            .attr("opacity", 1)
+            .attr("stroke-opacity", d => opacityScale(d.weight))
+        )
+        .attr("x1", d => d.source.x)
+        .attr("x2", d => d.target.x)
+        .attr("y1", d => d.source.y)
+        .attr("y2", d => d.target.y);
+
+      // Nodes
+      let circles = layer.selectAll("circle.node").data(nodes)
+        .join(
+          enter => enter.append("circle")
+            .attr("class", "node")
+            .attr("r", 5)
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("fill", d => mainCharacters.includes(d.Name) ? '#E50914' : '#0099FF')
+            .attr("stroke", "black")
+            .attr("stroke-width", 1)
+        )
+        .call(d3.drag().on("start", dragstart)
+          .on("drag", dragging)
+          .on("end", dragend))
+        .attr("transform", d => `translate(${d.x},${d.y})`)
+        .on("click", function (event, d) {
+          displayCharacterDetails(d.Name);
+          labelBg.style("display", "none");
+        });
+      // .on("mouseover", function (event, d) {
+      //   var text = d.Name;
+      //   label.text(text)
+      //     .attr("x", event.x - 370)
+      //     .attr("y", event.y - 310)
+      //     .style("display", null);
+
+      //   var bbox = label.node().getBBox();
+
+      //   labelBg.attr("x", bbox.x - 2)
+      //     .attr("y", bbox.y - 2)
+      //     .attr("width", bbox.width + 4)
+      //     .attr("height", bbox.height + 4)
+      //     .style("display", null);
+      // })
+      // .on("mouseout", function () {
+      //   label.style("display", "none");
+      //   labelBg.style("display", "none");
+      // });
+    }
+    render();
+
+    // var labelBg = layer.append("rect")
+    //   .attr("id", "label-bg")
+    //   .attr("x", 0)
+    //   .attr("y", 0)
+    //   .attr("width", 100)
+    //   .attr("height", 20)
+    //   .attr("fill", "white")
+    //   .style("display", "none");
+
+    // var label = layer.append("text")
+    //   .attr("id", "label")
+    //   .style("display", "none");
+
+    var label = layer.append("text").attr("id", "label");
+
+    function dragstart(event, d) {
+      if (!event.active) {
+        label.text(d.Name);
+        sim.alphaTarget(0.08).restart();
+      }
+      d.fx = event.x;
+      d.fy = event.y;
+      label.attr("x", event.x + 5).attr("y", event.y);
+    }
+    function dragging(event, d) {
+      d.fx = event.x;
+      d.fy = event.y;
+      label.attr("x", event.x + 5).attr("y", event.y);
+    }
+    function dragend(event, d) {
+      if (!event.active) {
+        sim.alphaTarget(0);
+        label.text("");
+      }
+      d.fx = null;
+      d.fy = null;
+    }
+
+  }
+
+  requestData();
+
+</script>
+
+</body>
+
+</html>
