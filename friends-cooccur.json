@@ -123,18 +123,18 @@
     ],
     "edges": [
         {
-            "source": "Monica",
-            "target": "Joey",
+            "source": "Joey",
+            "target": "Monica",
             "weight": 225,
-            "sourceIndex": 0,
-            "targetIndex": 1
+            "sourceIndex": 1,
+            "targetIndex": 0
         },
         {
-            "source": "Monica",
-            "target": "Chandler",
+            "source": "Chandler",
+            "target": "Monica",
             "weight": 225,
-            "sourceIndex": 0,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 0
         },
         {
             "source": "Monica",
@@ -158,25 +158,25 @@
             "targetIndex": 5
         },
         {
-            "source": "Monica",
-            "target": "Paul",
+            "source": "Paul",
+            "target": "Monica",
             "weight": 4,
-            "sourceIndex": 0,
-            "targetIndex": 6
+            "sourceIndex": 6,
+            "targetIndex": 0
+        },
+        {
+            "source": "Chandler",
+            "target": "Joey",
+            "weight": 225,
+            "sourceIndex": 2,
+            "targetIndex": 1
         },
         {
             "source": "Joey",
-            "target": "Chandler",
+            "target": "Phoebe",
             "weight": 225,
             "sourceIndex": 1,
-            "targetIndex": 2
-        },
-        {
-            "source": "Phoebe",
-            "target": "Joey",
-            "weight": 225,
-            "sourceIndex": 3,
-            "targetIndex": 1
+            "targetIndex": 3
         },
         {
             "source": "Joey",
@@ -193,18 +193,18 @@
             "targetIndex": 5
         },
         {
-            "source": "Joey",
-            "target": "Paul",
+            "source": "Paul",
+            "target": "Joey",
             "weight": 4,
-            "sourceIndex": 1,
-            "targetIndex": 6
+            "sourceIndex": 6,
+            "targetIndex": 1
         },
         {
-            "source": "Phoebe",
-            "target": "Chandler",
+            "source": "Chandler",
+            "target": "Phoebe",
             "weight": 225,
-            "sourceIndex": 3,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 3
         },
         {
             "source": "Chandler",
@@ -214,39 +214,39 @@
             "targetIndex": 4
         },
         {
-            "source": "Rachel",
-            "target": "Chandler",
-            "weight": 225,
-            "sourceIndex": 5,
-            "targetIndex": 2
-        },
-        {
-            "source": "Paul",
-            "target": "Chandler",
-            "weight": 4,
-            "sourceIndex": 6,
-            "targetIndex": 2
-        },
-        {
-            "source": "Phoebe",
-            "target": "Ross",
-            "weight": 225,
-            "sourceIndex": 3,
-            "targetIndex": 4
-        },
-        {
-            "source": "Phoebe",
+            "source": "Chandler",
             "target": "Rachel",
             "weight": 225,
-            "sourceIndex": 3,
+            "sourceIndex": 2,
             "targetIndex": 5
         },
         {
-            "source": "Phoebe",
-            "target": "Paul",
+            "source": "Paul",
+            "target": "Chandler",
             "weight": 4,
-            "sourceIndex": 3,
-            "targetIndex": 6
+            "sourceIndex": 6,
+            "targetIndex": 2
+        },
+        {
+            "source": "Ross",
+            "target": "Phoebe",
+            "weight": 225,
+            "sourceIndex": 4,
+            "targetIndex": 3
+        },
+        {
+            "source": "Rachel",
+            "target": "Phoebe",
+            "weight": 225,
+            "sourceIndex": 5,
+            "targetIndex": 3
+        },
+        {
+            "source": "Paul",
+            "target": "Phoebe",
+            "weight": 4,
+            "sourceIndex": 6,
+            "targetIndex": 3
         },
         {
             "source": "Rachel",
@@ -263,11 +263,11 @@
             "targetIndex": 4
         },
         {
-            "source": "Rachel",
-            "target": "Paul",
+            "source": "Paul",
+            "target": "Rachel",
             "weight": 4,
-            "sourceIndex": 5,
-            "targetIndex": 6
+            "sourceIndex": 6,
+            "targetIndex": 5
         },
         {
             "source": "Monica",
@@ -277,18 +277,18 @@
             "targetIndex": 7
         },
         {
-            "source": "Monica",
-            "target": "Mrs. Geller",
+            "source": "Mrs. Geller",
+            "target": "Monica",
             "weight": 17,
-            "sourceIndex": 0,
-            "targetIndex": 8
+            "sourceIndex": 8,
+            "targetIndex": 0
         },
         {
-            "source": "Monica",
-            "target": "Mr. Geller",
+            "source": "Mr. Geller",
+            "target": "Monica",
             "weight": 19,
-            "sourceIndex": 0,
-            "targetIndex": 9
+            "sourceIndex": 9,
+            "targetIndex": 0
         },
         {
             "source": "Monica",
@@ -305,88 +305,88 @@
             "targetIndex": 7
         },
         {
-            "source": "Joey",
-            "target": "Mrs. Geller",
+            "source": "Mrs. Geller",
+            "target": "Joey",
             "weight": 17,
-            "sourceIndex": 1,
-            "targetIndex": 8
+            "sourceIndex": 8,
+            "targetIndex": 1
         },
         {
-            "source": "Joey",
-            "target": "Mr. Geller",
+            "source": "Mr. Geller",
+            "target": "Joey",
             "weight": 19,
-            "sourceIndex": 1,
-            "targetIndex": 9
+            "sourceIndex": 9,
+            "targetIndex": 1
         },
         {
             "source": "Joey",
             "target": "Susan",
             "weight": 11,
             "sourceIndex": 1,
-            "targetIndex": 10
-        },
-        {
-            "source": "Phoebe",
-            "target": "Carol",
-            "weight": 15,
-            "sourceIndex": 3,
-            "targetIndex": 7
-        },
-        {
-            "source": "Phoebe",
-            "target": "Mrs. Geller",
-            "weight": 17,
-            "sourceIndex": 3,
-            "targetIndex": 8
-        },
-        {
-            "source": "Phoebe",
-            "target": "Mr. Geller",
-            "weight": 19,
-            "sourceIndex": 3,
-            "targetIndex": 9
-        },
-        {
-            "source": "Phoebe",
-            "target": "Susan",
-            "weight": 11,
-            "sourceIndex": 3,
-            "targetIndex": 10
-        },
-        {
-            "source": "Rachel",
-            "target": "Carol",
-            "weight": 15,
-            "sourceIndex": 5,
-            "targetIndex": 7
-        },
-        {
-            "source": "Rachel",
-            "target": "Mrs. Geller",
-            "weight": 17,
-            "sourceIndex": 5,
-            "targetIndex": 8
-        },
-        {
-            "source": "Rachel",
-            "target": "Mr. Geller",
-            "weight": 19,
-            "sourceIndex": 5,
-            "targetIndex": 9
-        },
-        {
-            "source": "Rachel",
-            "target": "Susan",
-            "weight": 11,
-            "sourceIndex": 5,
             "targetIndex": 10
         },
         {
             "source": "Carol",
-            "target": "Chandler",
+            "target": "Phoebe",
             "weight": 15,
             "sourceIndex": 7,
-            "targetIndex": 2
+            "targetIndex": 3
+        },
+        {
+            "source": "Mrs. Geller",
+            "target": "Phoebe",
+            "weight": 17,
+            "sourceIndex": 8,
+            "targetIndex": 3
+        },
+        {
+            "source": "Mr. Geller",
+            "target": "Phoebe",
+            "weight": 19,
+            "sourceIndex": 9,
+            "targetIndex": 3
+        },
+        {
+            "source": "Susan",
+            "target": "Phoebe",
+            "weight": 11,
+            "sourceIndex": 10,
+            "targetIndex": 3
+        },
+        {
+            "source": "Rachel",
+            "target": "Carol",
+            "weight": 15,
+            "sourceIndex": 5,
+            "targetIndex": 7
+        },
+        {
+            "source": "Mrs. Geller",
+            "target": "Rachel",
+            "weight": 17,
+            "sourceIndex": 8,
+            "targetIndex": 5
+        },
+        {
+            "source": "Mr. Geller",
+            "target": "Rachel",
+            "weight": 19,
+            "sourceIndex": 9,
+            "targetIndex": 5
+        },
+        {
+            "source": "Susan",
+            "target": "Rachel",
+            "weight": 11,
+            "sourceIndex": 10,
+            "targetIndex": 5
+        },
+        {
+            "source": "Chandler",
+            "target": "Carol",
+            "weight": 15,
+            "sourceIndex": 2,
+            "targetIndex": 7
         },
         {
             "source": "Mrs. Geller",
@@ -403,11 +403,11 @@
             "targetIndex": 2
         },
         {
-            "source": "Susan",
-            "target": "Chandler",
+            "source": "Chandler",
+            "target": "Susan",
             "weight": 11,
-            "sourceIndex": 10,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 10
         },
         {
             "source": "Carol",
@@ -459,18 +459,18 @@
             "targetIndex": 7
         },
         {
-            "source": "Mr. Geller",
-            "target": "Mrs. Geller",
+            "source": "Mrs. Geller",
+            "target": "Mr. Geller",
             "weight": 14,
-            "sourceIndex": 9,
-            "targetIndex": 8
+            "sourceIndex": 8,
+            "targetIndex": 9
         },
         {
-            "source": "Susan",
-            "target": "Mrs. Geller",
+            "source": "Mrs. Geller",
+            "target": "Susan",
             "weight": 1,
-            "sourceIndex": 10,
-            "targetIndex": 8
+            "sourceIndex": 8,
+            "targetIndex": 10
         },
         {
             "source": "Mr. Geller",
@@ -487,18 +487,18 @@
             "targetIndex": 11
         },
         {
-            "source": "Phoebe",
-            "target": "Jill",
-            "weight": 4,
-            "sourceIndex": 3,
-            "targetIndex": 11
-        },
-        {
             "source": "Jill",
-            "target": "Chandler",
+            "target": "Phoebe",
             "weight": 4,
             "sourceIndex": 11,
-            "targetIndex": 2
+            "targetIndex": 3
+        },
+        {
+            "source": "Chandler",
+            "target": "Jill",
+            "weight": 4,
+            "sourceIndex": 2,
+            "targetIndex": 11
         },
         {
             "source": "Monica",
@@ -543,18 +543,18 @@
             "targetIndex": 12
         },
         {
-            "source": "Monica",
-            "target": "Janice",
+            "source": "Janice",
+            "target": "Monica",
             "weight": 18,
-            "sourceIndex": 0,
-            "targetIndex": 13
+            "sourceIndex": 13,
+            "targetIndex": 0
         },
         {
-            "source": "David",
-            "target": "Rachel",
+            "source": "Rachel",
+            "target": "David",
             "weight": 5,
-            "sourceIndex": 12,
-            "targetIndex": 5
+            "sourceIndex": 5,
+            "targetIndex": 12
         },
         {
             "source": "Janice",
@@ -564,11 +564,11 @@
             "targetIndex": 5
         },
         {
-            "source": "Phoebe",
-            "target": "David",
+            "source": "David",
+            "target": "Phoebe",
             "weight": 5,
-            "sourceIndex": 3,
-            "targetIndex": 12
+            "sourceIndex": 12,
+            "targetIndex": 3
         },
         {
             "source": "Janice",
@@ -578,11 +578,11 @@
             "targetIndex": 3
         },
         {
-            "source": "David",
-            "target": "Chandler",
+            "source": "Chandler",
+            "target": "David",
             "weight": 5,
-            "sourceIndex": 12,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 12
         },
         {
             "source": "Janice",
@@ -592,11 +592,11 @@
             "targetIndex": 2
         },
         {
-            "source": "David",
-            "target": "Joey",
+            "source": "Joey",
+            "target": "David",
             "weight": 5,
-            "sourceIndex": 12,
-            "targetIndex": 1
+            "sourceIndex": 1,
+            "targetIndex": 12
         },
         {
             "source": "Janice",
@@ -627,18 +627,18 @@
             "targetIndex": 3
         },
         {
-            "source": "Gunther",
-            "target": "Joey",
+            "source": "Joey",
+            "target": "Gunther",
             "weight": 51,
-            "sourceIndex": 14,
-            "targetIndex": 1
+            "sourceIndex": 1,
+            "targetIndex": 14
         },
         {
-            "source": "Gunther",
-            "target": "Chandler",
+            "source": "Chandler",
+            "target": "Gunther",
             "weight": 51,
-            "sourceIndex": 14,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 14
         },
         {
             "source": "Gunther",
@@ -662,18 +662,18 @@
             "targetIndex": 4
         },
         {
-            "source": "Richard",
-            "target": "Joey",
+            "source": "Joey",
+            "target": "Richard",
             "weight": 9,
-            "sourceIndex": 15,
-            "targetIndex": 1
+            "sourceIndex": 1,
+            "targetIndex": 15
         },
         {
-            "source": "Richard",
-            "target": "Chandler",
+            "source": "Chandler",
+            "target": "Richard",
             "weight": 9,
-            "sourceIndex": 15,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 15
         },
         {
             "source": "Richard",
@@ -683,11 +683,11 @@
             "targetIndex": 3
         },
         {
-            "source": "Richard",
-            "target": "Rachel",
+            "source": "Rachel",
+            "target": "Richard",
             "weight": 9,
-            "sourceIndex": 15,
-            "targetIndex": 5
+            "sourceIndex": 5,
+            "targetIndex": 15
         },
         {
             "source": "Monica",
@@ -704,25 +704,25 @@
             "targetIndex": 4
         },
         {
-            "source": "Richard",
-            "target": "Mrs. Geller",
+            "source": "Mrs. Geller",
+            "target": "Richard",
             "weight": 2,
-            "sourceIndex": 15,
-            "targetIndex": 8
+            "sourceIndex": 8,
+            "targetIndex": 15
         },
         {
-            "source": "Richard",
-            "target": "Mr. Geller",
+            "source": "Mr. Geller",
+            "target": "Richard",
             "weight": 2,
-            "sourceIndex": 15,
-            "targetIndex": 9
+            "sourceIndex": 9,
+            "targetIndex": 15
         },
         {
-            "source": "Phoebe",
-            "target": "Ben",
+            "source": "Ben",
+            "target": "Phoebe",
             "weight": 10,
-            "sourceIndex": 3,
-            "targetIndex": 16
+            "sourceIndex": 16,
+            "targetIndex": 3
         },
         {
             "source": "Richard",
@@ -732,25 +732,25 @@
             "targetIndex": 7
         },
         {
-            "source": "Richard",
-            "target": "Susan",
+            "source": "Susan",
+            "target": "Richard",
             "weight": 1,
-            "sourceIndex": 15,
-            "targetIndex": 10
+            "sourceIndex": 10,
+            "targetIndex": 15
         },
         {
-            "source": "Richard",
-            "target": "Ben",
+            "source": "Ben",
+            "target": "Richard",
             "weight": 1,
-            "sourceIndex": 15,
-            "targetIndex": 16
+            "sourceIndex": 16,
+            "targetIndex": 15
         },
         {
-            "source": "Rachel",
-            "target": "Ben",
+            "source": "Ben",
+            "target": "Rachel",
             "weight": 10,
-            "sourceIndex": 5,
-            "targetIndex": 16
+            "sourceIndex": 16,
+            "targetIndex": 5
         },
         {
             "source": "Ben",
@@ -760,39 +760,39 @@
             "targetIndex": 4
         },
         {
-            "source": "Monica",
-            "target": "Ben",
+            "source": "Ben",
+            "target": "Monica",
             "weight": 10,
-            "sourceIndex": 0,
-            "targetIndex": 16
+            "sourceIndex": 16,
+            "targetIndex": 0
         },
         {
-            "source": "Joey",
-            "target": "Ben",
+            "source": "Ben",
+            "target": "Joey",
             "weight": 10,
-            "sourceIndex": 1,
-            "targetIndex": 16
+            "sourceIndex": 16,
+            "targetIndex": 1
         },
         {
-            "source": "Chandler",
-            "target": "Ben",
+            "source": "Ben",
+            "target": "Chandler",
             "weight": 10,
-            "sourceIndex": 2,
-            "targetIndex": 16
+            "sourceIndex": 16,
+            "targetIndex": 2
         },
         {
-            "source": "Carol",
-            "target": "Ben",
+            "source": "Ben",
+            "target": "Carol",
             "weight": 4,
-            "sourceIndex": 7,
-            "targetIndex": 16
+            "sourceIndex": 16,
+            "targetIndex": 7
         },
         {
-            "source": "Susan",
-            "target": "Ben",
+            "source": "Ben",
+            "target": "Susan",
             "weight": 2,
-            "sourceIndex": 10,
-            "targetIndex": 16
+            "sourceIndex": 16,
+            "targetIndex": 10
         },
         {
             "source": "Frank",
@@ -802,11 +802,11 @@
             "targetIndex": 1
         },
         {
-            "source": "Monica",
-            "target": "Frank",
+            "source": "Frank",
+            "target": "Monica",
             "weight": 6,
-            "sourceIndex": 0,
-            "targetIndex": 17
+            "sourceIndex": 17,
+            "targetIndex": 0
         },
         {
             "source": "Frank",
@@ -837,25 +837,25 @@
             "targetIndex": 2
         },
         {
-            "source": "Gunther",
-            "target": "Frank",
+            "source": "Frank",
+            "target": "Gunther",
             "weight": 2,
-            "sourceIndex": 14,
-            "targetIndex": 17
+            "sourceIndex": 17,
+            "targetIndex": 14
         },
         {
-            "source": "Gunther",
-            "target": "Mrs. Geller",
+            "source": "Mrs. Geller",
+            "target": "Gunther",
             "weight": 3,
-            "sourceIndex": 14,
-            "targetIndex": 8
+            "sourceIndex": 8,
+            "targetIndex": 14
         },
         {
-            "source": "Richard",
-            "target": "Janice",
+            "source": "Janice",
+            "target": "Richard",
             "weight": 1,
-            "sourceIndex": 15,
-            "targetIndex": 13
+            "sourceIndex": 13,
+            "targetIndex": 15
         },
         {
             "source": "Janice",
@@ -872,11 +872,11 @@
             "targetIndex": 8
         },
         {
-            "source": "Phoebe",
-            "target": "Mike",
+            "source": "Mike",
+            "target": "Phoebe",
             "weight": 18,
-            "sourceIndex": 3,
-            "targetIndex": 18
+            "sourceIndex": 18,
+            "targetIndex": 3
         },
         {
             "source": "Joey",
@@ -886,11 +886,11 @@
             "targetIndex": 18
         },
         {
-            "source": "Mike",
-            "target": "Rachel",
+            "source": "Rachel",
+            "target": "Mike",
             "weight": 18,
-            "sourceIndex": 18,
-            "targetIndex": 5
+            "sourceIndex": 5,
+            "targetIndex": 18
         },
         {
             "source": "Mike",
@@ -900,11 +900,11 @@
             "targetIndex": 4
         },
         {
-            "source": "Mike",
-            "target": "Chandler",
+            "source": "Chandler",
+            "target": "Mike",
             "weight": 18,
-            "sourceIndex": 18,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 18
         },
         {
             "source": "Janice",
@@ -928,11 +928,11 @@
             "targetIndex": 7
         },
         {
-            "source": "Mike",
-            "target": "Susan",
+            "source": "Susan",
+            "target": "Mike",
             "weight": 1,
-            "sourceIndex": 18,
-            "targetIndex": 10
+            "sourceIndex": 10,
+            "targetIndex": 18
         },
         {
             "source": "Janice",
@@ -942,39 +942,39 @@
             "targetIndex": 10
         },
         {
-            "source": "Gunther",
-            "target": "Janice",
-            "weight": 4,
-            "sourceIndex": 14,
-            "targetIndex": 13
-        },
-        {
-            "source": "Gunther",
-            "target": "Ben",
-            "weight": 2,
-            "sourceIndex": 14,
-            "targetIndex": 16
-        },
-        {
             "source": "Janice",
-            "target": "Ben",
-            "weight": 1,
-            "sourceIndex": 13,
-            "targetIndex": 16
-        },
-        {
-            "source": "Richard",
             "target": "Gunther",
-            "weight": 2,
-            "sourceIndex": 15,
+            "weight": 4,
+            "sourceIndex": 13,
             "targetIndex": 14
         },
         {
-            "source": "Monica",
-            "target": "Pete",
+            "source": "Ben",
+            "target": "Gunther",
+            "weight": 2,
+            "sourceIndex": 16,
+            "targetIndex": 14
+        },
+        {
+            "source": "Janice",
+            "target": "Ben",
+            "weight": 1,
+            "sourceIndex": 13,
+            "targetIndex": 16
+        },
+        {
+            "source": "Gunther",
+            "target": "Richard",
+            "weight": 2,
+            "sourceIndex": 14,
+            "targetIndex": 15
+        },
+        {
+            "source": "Pete",
+            "target": "Monica",
             "weight": 6,
-            "sourceIndex": 0,
-            "targetIndex": 19
+            "sourceIndex": 19,
+            "targetIndex": 0
         },
         {
             "source": "Pete",
@@ -984,11 +984,11 @@
             "targetIndex": 1
         },
         {
-            "source": "Gunther",
-            "target": "Pete",
+            "source": "Pete",
+            "target": "Gunther",
             "weight": 4,
-            "sourceIndex": 14,
-            "targetIndex": 19
+            "sourceIndex": 19,
+            "targetIndex": 14
         },
         {
             "source": "Pete",
@@ -1012,18 +1012,18 @@
             "targetIndex": 4
         },
         {
-            "source": "Phoebe",
-            "target": "Pete",
+            "source": "Pete",
+            "target": "Phoebe",
             "weight": 6,
-            "sourceIndex": 3,
-            "targetIndex": 19
+            "sourceIndex": 19,
+            "targetIndex": 3
         },
         {
-            "source": "Frank",
-            "target": "Pete",
+            "source": "Pete",
+            "target": "Frank",
             "weight": 1,
-            "sourceIndex": 17,
-            "targetIndex": 19
+            "sourceIndex": 19,
+            "targetIndex": 17
         },
         {
             "source": "Kathy",
@@ -1033,53 +1033,53 @@
             "targetIndex": 4
         },
         {
-            "source": "Phoebe",
-            "target": "Kathy",
+            "source": "Kathy",
+            "target": "Phoebe",
             "weight": 7,
-            "sourceIndex": 3,
-            "targetIndex": 20
+            "sourceIndex": 20,
+            "targetIndex": 3
         },
         {
-            "source": "Gunther",
-            "target": "Kathy",
+            "source": "Kathy",
+            "target": "Gunther",
             "weight": 3,
-            "sourceIndex": 14,
-            "targetIndex": 20
+            "sourceIndex": 20,
+            "targetIndex": 14
         },
         {
-            "source": "Rachel",
-            "target": "Kathy",
+            "source": "Kathy",
+            "target": "Rachel",
             "weight": 7,
-            "sourceIndex": 5,
-            "targetIndex": 20
+            "sourceIndex": 20,
+            "targetIndex": 5
+        },
+        {
+            "source": "Kathy",
+            "target": "Chandler",
+            "weight": 7,
+            "sourceIndex": 20,
+            "targetIndex": 2
+        },
+        {
+            "source": "Kathy",
+            "target": "Monica",
+            "weight": 7,
+            "sourceIndex": 20,
+            "targetIndex": 0
+        },
+        {
+            "source": "Kathy",
+            "target": "Joey",
+            "weight": 7,
+            "sourceIndex": 20,
+            "targetIndex": 1
         },
         {
             "source": "Chandler",
-            "target": "Kathy",
-            "weight": 7,
-            "sourceIndex": 2,
-            "targetIndex": 20
-        },
-        {
-            "source": "Monica",
-            "target": "Kathy",
-            "weight": 7,
-            "sourceIndex": 0,
-            "targetIndex": 20
-        },
-        {
-            "source": "Joey",
-            "target": "Kathy",
-            "weight": 7,
-            "sourceIndex": 1,
-            "targetIndex": 20
-        },
-        {
-            "source": "Joshua",
-            "target": "Chandler",
+            "target": "Joshua",
             "weight": 5,
-            "sourceIndex": 21,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 21
         },
         {
             "source": "Joshua",
@@ -1089,11 +1089,11 @@
             "targetIndex": 4
         },
         {
-            "source": "Joshua",
-            "target": "Kathy",
+            "source": "Kathy",
+            "target": "Joshua",
             "weight": 1,
-            "sourceIndex": 21,
-            "targetIndex": 20
+            "sourceIndex": 20,
+            "targetIndex": 21
         },
         {
             "source": "Joshua",
@@ -1110,18 +1110,18 @@
             "targetIndex": 21
         },
         {
-            "source": "Joshua",
-            "target": "Rachel",
+            "source": "Rachel",
+            "target": "Joshua",
             "weight": 5,
-            "sourceIndex": 21,
-            "targetIndex": 5
+            "sourceIndex": 5,
+            "targetIndex": 21
         },
         {
-            "source": "Joshua",
-            "target": "Joey",
+            "source": "Joey",
+            "target": "Joshua",
             "weight": 5,
-            "sourceIndex": 21,
-            "targetIndex": 1
+            "sourceIndex": 1,
+            "targetIndex": 21
         },
         {
             "source": "Emily",
@@ -1138,11 +1138,11 @@
             "targetIndex": 1
         },
         {
-            "source": "Monica",
-            "target": "Emily",
+            "source": "Emily",
+            "target": "Monica",
             "weight": 12,
-            "sourceIndex": 0,
-            "targetIndex": 22
+            "sourceIndex": 22,
+            "targetIndex": 0
         },
         {
             "source": "Emily",
@@ -1194,74 +1194,74 @@
             "targetIndex": 21
         },
         {
-            "source": "Frank",
-            "target": "Emily",
+            "source": "Emily",
+            "target": "Frank",
             "weight": 1,
-            "sourceIndex": 17,
+            "sourceIndex": 22,
+            "targetIndex": 17
+        },
+        {
+            "source": "Emily",
+            "target": "Carol",
+            "weight": 1,
+            "sourceIndex": 22,
+            "targetIndex": 7
+        },
+        {
+            "source": "Emily",
+            "target": "Susan",
+            "weight": 1,
+            "sourceIndex": 22,
+            "targetIndex": 10
+        },
+        {
+            "source": "Joshua",
+            "target": "Carol",
+            "weight": 1,
+            "sourceIndex": 21,
+            "targetIndex": 7
+        },
+        {
+            "source": "Susan",
+            "target": "Joshua",
+            "weight": 1,
+            "sourceIndex": 10,
+            "targetIndex": 21
+        },
+        {
+            "source": "Mrs. Geller",
+            "target": "Emily",
+            "weight": 3,
+            "sourceIndex": 8,
             "targetIndex": 22
         },
         {
             "source": "Emily",
-            "target": "Carol",
-            "weight": 1,
-            "sourceIndex": 22,
-            "targetIndex": 7
-        },
-        {
-            "source": "Emily",
-            "target": "Susan",
-            "weight": 1,
-            "sourceIndex": 22,
-            "targetIndex": 10
-        },
-        {
-            "source": "Joshua",
-            "target": "Carol",
-            "weight": 1,
-            "sourceIndex": 21,
-            "targetIndex": 7
-        },
-        {
-            "source": "Joshua",
-            "target": "Susan",
-            "weight": 1,
-            "sourceIndex": 21,
-            "targetIndex": 10
-        },
-        {
-            "source": "Emily",
-            "target": "Mrs. Geller",
-            "weight": 3,
-            "sourceIndex": 22,
-            "targetIndex": 8
-        },
-        {
-            "source": "Emily",
             "target": "Mr. Geller",
             "weight": 3,
             "sourceIndex": 22,
             "targetIndex": 9
         },
         {
-            "source": "Gunther",
-            "target": "Mr. Geller",
+            "source": "Mr. Geller",
+            "target": "Gunther",
             "weight": 2,
-            "sourceIndex": 14,
-            "targetIndex": 9
+            "sourceIndex": 9,
+            "targetIndex": 14
         },
         {
-            "source": "Elizabeth",
-            "target": "Joey",
+            "source": "Joey",
+            "target": "Elizabeth",
             "weight": 6,
-            "sourceIndex": 23,
-            "targetIndex": 1
+            "sourceIndex": 1,
+            "targetIndex": 23
         },
         {
-            "source": "Elizabeth",
-            "target": "Chandler",
+            "source": "Chandler",
+            "target": "Elizabeth",
             "weight": 6,
-            "sourceIndex": 23,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 23
         },
         {
             "source": "Monica",
@@ -1278,25 +1278,25 @@
             "targetIndex": 4
         },
         {
-            "source": "Phoebe",
+            "source": "Elizabeth",
+            "target": "Phoebe",
+            "weight": 6,
+            "sourceIndex": 23,
+            "targetIndex": 3
+        },
+        {
+            "source": "Rachel",
             "target": "Elizabeth",
             "weight": 6,
-            "sourceIndex": 3,
+            "sourceIndex": 5,
             "targetIndex": 23
         },
         {
-            "source": "Elizabeth",
-            "target": "Rachel",
-            "weight": 6,
-            "sourceIndex": 23,
-            "targetIndex": 5
-        },
-        {
-            "source": "Elizabeth",
-            "target": "Ben",
+            "source": "Ben",
+            "target": "Elizabeth",
             "weight": 1,
-            "sourceIndex": 23,
-            "targetIndex": 16
+            "sourceIndex": 16,
+            "targetIndex": 23
         },
         {
             "source": "Gary",
@@ -1313,11 +1313,11 @@
             "targetIndex": 2
         },
         {
-            "source": "Monica",
-            "target": "Gary",
+            "source": "Gary",
+            "target": "Monica",
             "weight": 5,
-            "sourceIndex": 0,
-            "targetIndex": 24
+            "sourceIndex": 24,
+            "targetIndex": 0
         },
         {
             "source": "Gary",
@@ -1341,18 +1341,18 @@
             "targetIndex": 4
         },
         {
-            "source": "Emily",
-            "target": "Gary",
+            "source": "Gary",
+            "target": "Emily",
             "weight": 1,
-            "sourceIndex": 22,
-            "targetIndex": 24
+            "sourceIndex": 24,
+            "targetIndex": 22
         },
         {
-            "source": "Gunther",
-            "target": "Gary",
+            "source": "Gary",
+            "target": "Gunther",
             "weight": 1,
-            "sourceIndex": 14,
-            "targetIndex": 24
+            "sourceIndex": 24,
+            "targetIndex": 14
         },
         {
             "source": "Janine",
@@ -1383,25 +1383,25 @@
             "targetIndex": 2
         },
         {
-            "source": "Monica",
+            "source": "Janine",
+            "target": "Monica",
+            "weight": 6,
+            "sourceIndex": 25,
+            "targetIndex": 0
+        },
+        {
+            "source": "Janine",
+            "target": "Joey",
+            "weight": 6,
+            "sourceIndex": 25,
+            "targetIndex": 1
+        },
+        {
+            "source": "Mrs. Geller",
             "target": "Janine",
-            "weight": 6,
-            "sourceIndex": 0,
-            "targetIndex": 25
-        },
-        {
-            "source": "Janine",
-            "target": "Joey",
-            "weight": 6,
-            "sourceIndex": 25,
-            "targetIndex": 1
-        },
-        {
-            "source": "Janine",
-            "target": "Mrs. Geller",
             "weight": 1,
-            "sourceIndex": 25,
-            "targetIndex": 8
+            "sourceIndex": 8,
+            "targetIndex": 25
         },
         {
             "source": "Janine",
@@ -1418,18 +1418,18 @@
             "targetIndex": 11
         },
         {
-            "source": "Elizabeth",
-            "target": "Paul",
+            "source": "Paul",
+            "target": "Elizabeth",
             "weight": 2,
-            "sourceIndex": 23,
-            "targetIndex": 6
+            "sourceIndex": 6,
+            "targetIndex": 23
         },
         {
-            "source": "Gunther",
-            "target": "Paul",
+            "source": "Paul",
+            "target": "Gunther",
             "weight": 2,
-            "sourceIndex": 14,
-            "targetIndex": 6
+            "sourceIndex": 6,
+            "targetIndex": 14
         },
         {
             "source": "Gunther",
@@ -1446,25 +1446,25 @@
             "targetIndex": 23
         },
         {
-            "source": "Joey",
-            "target": "Tag",
+            "source": "Tag",
+            "target": "Joey",
             "weight": 7,
-            "sourceIndex": 1,
-            "targetIndex": 26
+            "sourceIndex": 26,
+            "targetIndex": 1
         },
         {
-            "source": "Monica",
-            "target": "Tag",
+            "source": "Tag",
+            "target": "Monica",
             "weight": 7,
-            "sourceIndex": 0,
-            "targetIndex": 26
+            "sourceIndex": 26,
+            "targetIndex": 0
         },
         {
-            "source": "Chandler",
-            "target": "Tag",
+            "source": "Tag",
+            "target": "Chandler",
             "weight": 7,
-            "sourceIndex": 2,
-            "targetIndex": 26
+            "sourceIndex": 26,
+            "targetIndex": 2
         },
         {
             "source": "Tag",
@@ -1474,18 +1474,18 @@
             "targetIndex": 4
         },
         {
-            "source": "Rachel",
-            "target": "Tag",
+            "source": "Tag",
+            "target": "Rachel",
             "weight": 7,
-            "sourceIndex": 5,
-            "targetIndex": 26
+            "sourceIndex": 26,
+            "targetIndex": 5
         },
         {
-            "source": "Phoebe",
-            "target": "Tag",
+            "source": "Tag",
+            "target": "Phoebe",
             "weight": 7,
-            "sourceIndex": 3,
-            "targetIndex": 26
+            "sourceIndex": 26,
+            "targetIndex": 3
         },
         {
             "source": "Tag",
@@ -1509,25 +1509,25 @@
             "targetIndex": 16
         },
         {
-            "source": "Gary",
-            "target": "Tag",
+            "source": "Tag",
+            "target": "Gary",
             "weight": 1,
-            "sourceIndex": 24,
-            "targetIndex": 26
+            "sourceIndex": 26,
+            "targetIndex": 24
         },
         {
-            "source": "Mrs. Geller",
-            "target": "Tag",
+            "source": "Tag",
+            "target": "Mrs. Geller",
             "weight": 1,
-            "sourceIndex": 8,
-            "targetIndex": 26
+            "sourceIndex": 26,
+            "targetIndex": 8
         },
         {
-            "source": "Mr. Geller",
-            "target": "Tag",
+            "source": "Tag",
+            "target": "Mr. Geller",
             "weight": 1,
-            "sourceIndex": 9,
-            "targetIndex": 26
+            "sourceIndex": 26,
+            "targetIndex": 9
         },
         {
             "source": "Monica",
@@ -1551,11 +1551,11 @@
             "targetIndex": 27
         },
         {
-            "source": "Phoebe",
-            "target": "Mona",
+            "source": "Mona",
+            "target": "Phoebe",
             "weight": 7,
-            "sourceIndex": 3,
-            "targetIndex": 27
+            "sourceIndex": 27,
+            "targetIndex": 3
         },
         {
             "source": "Chandler",
@@ -1586,18 +1586,18 @@
             "targetIndex": 27
         },
         {
-            "source": "Gunther",
-            "target": "Mike",
+            "source": "Mike",
+            "target": "Gunther",
             "weight": 3,
-            "sourceIndex": 14,
-            "targetIndex": 18
+            "sourceIndex": 18,
+            "targetIndex": 14
         },
         {
-            "source": "Gunther",
-            "target": "Janine",
+            "source": "Janine",
+            "target": "Gunther",
             "weight": 1,
-            "sourceIndex": 14,
-            "targetIndex": 25
+            "sourceIndex": 25,
+            "targetIndex": 14
         },
         {
             "source": "Mike",
@@ -1621,11 +1621,11 @@
             "targetIndex": 11
         },
         {
-            "source": "David",
-            "target": "Mike",
+            "source": "Mike",
+            "target": "David",
             "weight": 2,
-            "sourceIndex": 12,
-            "targetIndex": 18
+            "sourceIndex": 18,
+            "targetIndex": 12
         },
         {
             "source": "Monica",
@@ -1635,18 +1635,18 @@
             "targetIndex": 28
         },
         {
-            "source": "Amy",
-            "target": "Chandler",
+            "source": "Chandler",
+            "target": "Amy",
             "weight": 2,
-            "sourceIndex": 28,
-            "targetIndex": 2
+            "sourceIndex": 2,
+            "targetIndex": 28
         },
         {
-            "source": "Amy",
-            "target": "Joey",
+            "source": "Joey",
+            "target": "Amy",
             "weight": 2,
-            "sourceIndex": 28,
-            "targetIndex": 1
+            "sourceIndex": 1,
+            "targetIndex": 28
         },
         {
             "source": "Amy",
@@ -1656,11 +1656,11 @@
             "targetIndex": 4
         },
         {
-            "source": "Amy",
-            "target": "Rachel",
+            "source": "Rachel",
+            "target": "Amy",
             "weight": 2,
-            "sourceIndex": 28,
-            "targetIndex": 5
+            "sourceIndex": 5,
+            "targetIndex": 28
         },
         {
             "source": "Amy",
@@ -1691,11 +1691,11 @@
             "targetIndex": 3
         },
         {
-            "source": "Monica",
-            "target": "Charlie",
+            "source": "Charlie",
+            "target": "Monica",
             "weight": 8,
-            "sourceIndex": 0,
-            "targetIndex": 29
+            "sourceIndex": 29,
+            "targetIndex": 0
         },
         {
             "source": "Charlie",
@@ -1747,11 +1747,11 @@
             "targetIndex": 28
         },
         {
-            "source": "Amy",
-            "target": "Mike",
+            "source": "Mike",
+            "target": "Amy",
             "weight": 1,
-            "sourceIndex": 28,
-            "targetIndex": 18
+            "sourceIndex": 18,
+            "targetIndex": 28
         }
     ]
 }

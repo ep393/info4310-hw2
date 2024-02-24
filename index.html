@@ -88,8 +88,8 @@
 <div id="introInstructions" style="text-align: center; margin-top: 20px;">
   <p>Welcome to our interactive Friends network visualization! This graph illustrates the connections and relationships
     between some of the characters of the show.</p>
-  <p><strong>How to interact:</strong> Click on a character node to view some fun data visualizations about them. You
-    can also drag nodes to explore the network structure.</p>
+  <p><strong>How to interact:</strong> Click on a character node, then scroll down to view some fun data visualizations
+    about them. You can also drag nodes to explore the network structure.</p>
 </div>
 
 <div id="networkDiagramContainer" style="text-align: center;">
@@ -164,7 +164,7 @@
     function displayMostCommonWords(characterName) {
       const container = document.getElementById("mostCommonWords");
       const characterData = mostCommonWordsData.find(entry => entry.character === characterName);
-      let tableHtml = `<p><strong>Most Common Words Of ${characterName}</strong></p><table><tr><th>Word</th><th>Frequency</th></tr>`;
+      let tableHtml = `<p><strong>Most Frequently Used Words Of ${characterName}</strong></p><table><tr><th>Word</th><th>Frequency</th></tr>`;
 
       characterData.words.forEach(wordEntry => {
         tableHtml += `<tr><td>${wordEntry.word}</td><td>${parseInt(wordEntry.count)}</td></tr>`;
@@ -188,34 +188,28 @@
     }
 
     function displayCharacterDetails(charName) {
-      // Show the character details container
       const characterDetailsDiv = document.getElementById("characterDetails");
-      characterDetailsDiv.style.display = "flex"; // Make sure to set this to flex to activate flexbox layout
-      characterDetailsDiv.innerHTML = ''; // Clear existing content
+      characterDetailsDiv.style.display = "flex";
+      characterDetailsDiv.innerHTML = '';
 
-      // Update the character's name and image
       characterDetailsDiv.innerHTML = `
     <h2 id="characterName">${charName}</h2>
     <img id="characterImage" src="images/${charName.toLowerCase().replace(/\s+/g, '')}.png" alt="${charName}" style="max-width:100%; max-height:300px;">
   `;
 
-      // Create a container for the three information boxes
       const boxesContainer = document.createElement('div');
       boxesContainer.className = 'infoBoxesContainer';
 
-      // Add the three boxes to the container
       boxesContainer.innerHTML = `
     <div id="charactersAppearMost" class="detailBox"></div>
     <div id="mostCommonWords" class="detailBox">Most Common Words Of ${charName}</div>
     <div id="mostDistinguishingWords" class="detailBox">Most Distinguishing Words Of ${charName}</div>
   `;
 
-      // Append the boxes container to the characterDetailsDiv
       characterDetailsDiv.appendChild(boxesContainer);
 
       document.getElementById("lineChartContainer").style.display = "block";
 
-      // Now call displayTopInteractions to fill in the first box. Ensure this function updates the content of #charactersAppearMost.
       displayTopInteractions(charName);
       displayMostCommonWords(charName);
       displayDistinguishingWords(charName);
@@ -350,59 +344,53 @@
           .on("end", dragend))
         .attr("transform", d => `translate(${d.x},${d.y})`)
         .on("click", function (event, d) {
-          displayCharacterDetails(d.Name);
-          labelBg.style("display", "none");
+          displayCharacterDetails(d.Name)
         });
-      // .on("mouseover", function (event, d) {
-      //   var text = d.Name;
-      //   label.text(text)
-      //     .attr("x", event.x - 370)
-      //     .attr("y", event.y - 310)
-      //     .style("display", null);
-
-      //   var bbox = label.node().getBBox();
-
-      //   labelBg.attr("x", bbox.x - 2)
-      //     .attr("y", bbox.y - 2)
-      //     .attr("width", bbox.width + 4)
-      //     .attr("height", bbox.height + 4)
-      //     .style("display", null);
-      // })
-      // .on("mouseout", function () {
-      //   label.style("display", "none");
-      //   labelBg.style("display", "none");
-      // });
     }
     render();
 
-    // var labelBg = layer.append("rect")
-    //   .attr("id", "label-bg")
-    //   .attr("x", 0)
-    //   .attr("y", 0)
-    //   .attr("width", 100)
-    //   .attr("height", 20)
-    //   .attr("fill", "white")
-    //   .style("display", "none");
-
-    // var label = layer.append("text")
-    //   .attr("id", "label")
-    //   .style("display", "none");
+    var labelBg = layer.append("rect")
+      .attr("id", "label-bg")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", 100)
+      .attr("height", 20)
+      .attr("fill", "white")
+      .style("display", "none");
 
     var label = layer.append("text").attr("id", "label");
 
+    function showLabel(event, d) {
+      label.text(d.Name)
+        .attr("x", event.x - 5)
+        .attr("y", event.y - 20)
+        .style("display", null);
+
+      var bbox = label.node().getBBox();
+      labelBg.attr("x", bbox.x - 5)
+        .attr("y", bbox.y - 5)
+        .attr("width", bbox.width + 10)
+        .attr("height", bbox.height + 10)
+        .style("display", null);
+    }
+
+    function hideLabel() {
+      label.style("display", "none");
+      labelBg.style("display", "none");
+    }
+
     function dragstart(event, d) {
       if (!event.active) {
-        label.text(d.Name);
         sim.alphaTarget(0.08).restart();
       }
       d.fx = event.x;
       d.fy = event.y;
-      label.attr("x", event.x + 5).attr("y", event.y);
+      showLabel(event, d);
     }
     function dragging(event, d) {
       d.fx = event.x;
       d.fy = event.y;
-      label.attr("x", event.x + 5).attr("y", event.y);
+      showLabel(event, d);
     }
     function dragend(event, d) {
       if (!event.active) {
@@ -411,11 +399,44 @@
       }
       d.fx = null;
       d.fy = null;
+      hideLabel();
     }
 
   }
 
   requestData();
+
+  const legend = layer.append("g")
+    .attr("class", "legend")
+    .attr("transform", "translate(20,20)");
+
+  legend.append("circle")
+    .attr("cx", 0)
+    .attr("cy", 0)
+    .attr("r", 5)
+    .attr("fill", "#E50914");
+
+  legend.append("text")
+    .attr("x", 10)
+    .attr("y", 5)
+    .text("Main Character")
+    .attr("font-family", "sans-serif")
+    .attr("font-size", "12px")
+    .attr("fill", "#333");
+
+  legend.append("circle")
+    .attr("cx", 0)
+    .attr("cy", 20)
+    .attr("r", 5)
+    .attr("fill", "#0099FF");
+
+  legend.append("text")
+    .attr("x", 10)
+    .attr("y", 25)
+    .text("Supporting Character")
+    .attr("font-family", "sans-serif")
+    .attr("font-size", "12px")
+    .attr("fill", "#333");
 
 </script>
 
